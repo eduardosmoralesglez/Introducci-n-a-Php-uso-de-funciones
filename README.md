@@ -9,14 +9,26 @@ Implementa una función __esCapicua(int $n): bool__ que determine si un número 
 > Ejemplo: `12321` → `true`
 
 ```php
-<?php
-    // SIN TERMINAR
-    declare( strict_type=1);
-    function esCapicua(int $n) : bool {
-        
+<?php 
+    declare(strict_types=1);
+    function esCapicua(int $n): bool {
+        $numeroOriginal = $n; 
+        $invertido = 0;
+        while ($n > 0) {
+            $digito = $n % 10; 
+            $invertido = $invertido * 10 + $digito; 
+            $n = intdiv($n, 10);
+        }
+        if ($numeroOriginal == $invertido) {
+            return true;
+        }
+        return false;
     }
+    echo esCapicua(12321);
 ?>
 ```
+
+![alt text](./img/001.png)
 
 ## Escalera de asteriscos
 
