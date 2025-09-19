@@ -10,7 +10,11 @@ Implementa una función __esCapicua(int $n): bool__ que determine si un número 
 
 ```php
 <?php
-    
+    // SIN TERMINAR
+    declare( strict_type=1);
+    function esCapicua(int $n) : bool {
+        
+    }
 ?>
 ```
 
@@ -31,7 +35,15 @@ Implementa una función __montañaAsteriscos(int $n, $m): void__ que imprima una
 
 ```php
 <?php
-
+    // SIN TERMINAR
+    declare( strict_type=1);
+    function montañaAsteriscos(int $n, int $m) {
+        for ($i = 1; $i <= $n; $i++) {
+        echo str_repeat("*", $i);
+        echo "<br>";
+        }
+    }
+    echo montañaAsteriscos(4,2);
 ?>
 ```
 
@@ -84,7 +96,15 @@ Implementa una función __secuenciaCollatz(int $n): array__ que genere la secuen
 
 ```php
 <?php
-
+// SIN TERMINAR
+    declare( strict_type=1);
+    function secuenciaCollatz(int $n) : array {
+        $finalSecuencia = false;
+        while (!$finalSecuencia) {
+            
+        }
+    }
+    echo secuenciaCollatz(10);
 ?>
 ```
 
