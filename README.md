@@ -12,17 +12,11 @@ Implementa una función __esCapicua(int $n): bool__ que determine si un número 
 <?php 
     declare(strict_types=1);
     function esCapicua(int $n): bool {
-        $numeroOriginal = $n; 
-        $invertido = 0;
-        while ($n > 0) {
-            $digito = $n % 10; 
-            $invertido = $invertido * 10 + $digito; 
-            $n = intdiv($n, 10);
+        if ($n < 0) {
+            return false;
         }
-        if ($numeroOriginal == $invertido) {
-            return true;
-        }
-        return false;
+        String $s = (string) $n;
+        return $s === strrev($s);
     }
     echo esCapicua(12321);
 ?>
@@ -69,7 +63,18 @@ Implementa una función __sumaDigitos(int $n): int__ que calcule la suma de los 
 
 ```php
 <?php
-
+function sumaDigitos(int $n): int {
+    if ($n < 0) {
+        return $n;
+    }
+    $s = (string) $n;
+    $suma = 0;
+    for ($i = 0; $i < strlen($s); $i++) {
+        $suma += (int) $s[$i];
+    }
+    return $suma;
+}
+echo sumaDigitos(15);
 ?>
 ```
 
@@ -88,7 +93,22 @@ Suma = 23
 
 ```php
 <?php
+function multiplosTresOCinco(int $n): array {
+    if ($n <= 0) {
+        return null;
+    }
+    $resultado = [];
+    for ($i = 1; $i < $n; $i++) {
+        if ($i % 3 === 0 || $i % 5 === 0) {
+            array_push($resultado,$i);
+        }
+    }
 
+    return $resultado;
+}
+foreach (multiplosTresOCinco(10) as $n) {
+    echo $n . " ";
+}
 ?>
 ```
 
@@ -108,15 +128,23 @@ Implementa una función __secuenciaCollatz(int $n): array__ que genere la secuen
 
 ```php
 <?php
-// SIN TERMINAR
     declare( strict_type=1);
-    function secuenciaCollatz(int $n) : array {
-        $finalSecuencia = false;
-        while (!$finalSecuencia) {
-            
+    function secuenciaCollatz(int $n): array {
+    $secuencia = [];
+	array_push($secuencia,$n);
+    while ($n !== 1) {
+        if ($n % 2 === 0) {
+            $n = intdiv($n, 2);
+        } else {
+            $n = 3 * $n + 1;
         }
+        array_push($secuencia,$n);
     }
-    echo secuenciaCollatz(10);
+    return $secuencia;
+}
+    foreach (secuenciaCollatz(6) as $n) {
+    echo $n . " ";
+}
 ?>
 ```
 
